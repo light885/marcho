@@ -1,10 +1,8 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
-
-
-
 
 
 .header {
@@ -16,6 +14,7 @@
     align-items: center;
   }
 }
+
 
 .menu {
   &__list {
@@ -74,9 +73,11 @@
   }
 }
 
+
 .footer {
   background-color: $bg;
 }
+
 
 .footer-top {
   padding: 70px 0 40px;
@@ -107,9 +108,7 @@
   &__phone {
     display: block;
     margin-bottom: 14px;
-
   }
-
 
   &__social-list {
     display: flex;
@@ -123,18 +122,15 @@
 
   &__social-link {
     transition: all 0.3s;
-
     path {
       fill: $default;
     }
-
     &:hover {
       path {
         fill: $accent;
       }
     }
   }
-
 
   &__title {
     color: $title;
@@ -160,7 +156,6 @@
     border: none;
     padding: 12px 10px 12px 15px;
     box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
-
     &::placeholder {
       color: $default;
       font-size: 16px;
@@ -168,12 +163,8 @@
   }
 
   &__form-btn {
+    @extend %btn;
     border: none;
-    color: #fff;
-    background-color: $accent;
-    text-transform: uppercase;
-    padding: 12px 26px;
-    box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
     cursor: pointer;
   }
 }
@@ -183,8 +174,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;  
-
+  font-size: 12px;
   &__accept-img {
     display: inline-block;
     margin-left: 25px;
@@ -193,25 +183,83 @@
 }
 
 
+.top-slider {
+  background-image: url('../images/');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $bg;
+  padding: 70px 0 45px;
+  &__container {
+    max-width: 1560px;
+  }
 
+  &__item {
+    display: flex !important;
+    justify-content: space-between;
+  }
 
+  &__content {
+    padding-left: 175px;
+    padding-top: 125px;
+  }
 
+  &__title {
+    max-width: 670px;
+    font-size: 58px;
+    line-height: 68px;
+    color: $title;
+    @extend %roboto-700;
+    margin-bottom: 40px;
+  }
 
+  &__text {
+    margin-bottom: 55px;
+    max-width: 470px;
+  }
 
+  &__link {
+    @extend %btn;
+    padding: 14px 36px;
+  }
 
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+    li {
+      margin: 0 5px;
+      button {
+        padding: 0;
+        font-size: 0;
+        background-color: transparent;
+        width: 31px;
+        height: 31px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        position: relative;
+        &::before {
+          content: '';
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $default;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          position: absolute;
+        }
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+      &.slick-active {
+        button {
+          border-color: $accent;
+          &::before {
+            background-color: $accent;
+          }
+        }
+      }
+    }
+  }
+}
 
 @import 'media';
