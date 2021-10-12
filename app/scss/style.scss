@@ -122,9 +122,11 @@
 
   &__social-link {
     transition: all 0.3s;
+
     path {
       fill: $default;
     }
+
     &:hover {
       path {
         fill: $accent;
@@ -156,6 +158,7 @@
     border: none;
     padding: 12px 10px 12px 15px;
     box-shadow: 0px 7px 20px 0px rgba(192, 192, 192, 0.3);
+
     &::placeholder {
       color: $default;
       font-size: 16px;
@@ -175,6 +178,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
+
   &__accept-img {
     display: inline-block;
     margin-left: 25px;
@@ -189,6 +193,7 @@
   background-size: cover;
   background-color: $bg;
   padding: 70px 0 45px;
+
   &__container {
     max-width: 1560px;
   }
@@ -226,8 +231,10 @@
     display: flex;
     justify-content: center;
     margin-top: -70px;
+
     li {
       margin: 0 5px;
+
       button {
         padding: 0;
         font-size: 0;
@@ -237,6 +244,7 @@
         border: 1px solid transparent;
         border-radius: 50%;
         position: relative;
+
         &::before {
           content: '';
           width: 6px;
@@ -253,6 +261,7 @@
       &.slick-active {
         button {
           border-color: $accent;
+
           &::before {
             background-color: $accent;
           }
@@ -261,5 +270,164 @@
     }
   }
 }
+
+// .categories-info + &__inner (украшения по бокам, но картинки не загрузились)
+
+.categories-info {
+  padding: 120px 0;
+  background-image: url('../images/decor/');
+  background-repeat: no-repeat;
+  background-position: center left;
+
+  &__inner {
+    background-image: url('../images/decor/');
+    background-repeat: no-repeat;
+    background-position: center right;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 120px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+
+  &::before {
+    background-image: url(../images/decor/info_before_bg.png);
+    top: -40px;
+    left: -45px;
+    width: 120px;
+    height: 121px;
+  }
+
+  &::after {
+    background-image: url(../images/decor/info_after_bg.png);
+    bottom: -23px;
+    right: -25px;
+    width: 65px;
+    height: 52px;
+  }
+
+  &__item {
+    padding: 120px 40px 60px;
+    width: 370px;
+    box-shadow: 20px 0px 60px 0px rgba(202, 202, 202, 0.34);
+    position: relative;
+    background-color: #fff;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-position: left;
+      background-repeat: no-repeat;
+      background-size: cover;
+      top: 60px;
+      left: 40px;
+      width: 60px;
+      height: 60px;
+    }
+
+    &-title {
+      margin: 39px 0 18px;
+      color: $title;
+      font-size: 22px;
+      @extend %roboto-400;
+    }
+  }
+
+  &__item--shipping::before {
+    background-image: url('../images/icons/1.png');
+  }
+
+  &__item--return::before {
+    background-image: url('../images/icons/2.png');
+  }
+
+  &__item--support::before {
+    background-image: url('../images/icons/3.png');
+  }
+}
+
+.categories {
+  &__items {
+    display: grid;
+    min-height: 635px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+
+  &__item {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-left: 40px;
+    padding-top: 40px;
+
+
+    &:nth-child(1) {
+      grid-row: span 2;
+
+      .categories__item-subtitle,
+      .categories__link:hover {
+        color: #5800e4;
+      }
+    }
+
+    &:nth-child(2) {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 0;
+
+      .categories__item-subtitle,
+      .categories__link:hover {
+        color: $accent;
+      }
+    }
+
+    &:nth-child(3) {
+
+      .categories__item-subtitle,
+      .categories__link:hover {
+        color: #ffb534;
+      }
+    }
+
+    &:nth-child(4) {
+
+      .categories__item-subtitle,
+      .categories__link:hover {
+        color: #34c3ff;
+      }
+    }
+  }
+
+  &__item-subtitle {
+    margin-bottom: 11px;
+  }
+
+  &__item-title {
+    font-size: 22px;
+    color: $title;
+    margin-bottom: 16px;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    color: $title;
+    @extend %roboto-400;
+    transition: all 0.3s;
+  }
+}
+
 
 @import 'media';
